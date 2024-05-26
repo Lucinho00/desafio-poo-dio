@@ -1,0 +1,131 @@
+Abstração: Vamos nos concentrar nos aspectos essenciais do domínio Bootcamp e ignorar características menos importantes.
+Encapsulamento: Esconderemos a implementação dos objetos, criando interfaces de uso mais concisas e fáceis de entender.
+Herança: Utilizaremos herança quando houver relação de especialização entre as classes.
+Polimorfismo: Permitiremos que objetos de classes diferentes possam ser tratados de forma uniforme.
+Vamos começar definindo as classes:
+
+Bootcamp: Representará um bootcamp em si.
+Curso: Representará os cursos oferecidos dentro do bootcamp.
+Mentoria: Representará as mentorias disponíveis no bootcamp.
+Dev: Representará os participantes do bootcamp, os desenvolvedores.
+Vou começar com a estrutura básica das classes Bootcamp, Curso, Mentoria e Dev, definindo seus atributos e métodos:
+
+import java.util.ArrayList;
+import java.util.List;
+
+// Classe Bootcamp
+public class Bootcamp {
+    private String nome;
+    private List<Curso> cursos;
+    private List<Mentoria> mentorias;
+    private List<Dev> devs;
+
+    public Bootcamp(String nome) {
+        this.nome = nome;
+        this.cursos = new ArrayList<>();
+        this.mentorias = new ArrayList<>();
+        this.devs = new ArrayList<>();
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    // Métodos para adicionar cursos, mentorias e devs ao bootcamp
+    public void adicionarCurso(Curso curso) {
+        cursos.add(curso);
+    }
+
+    public void adicionarMentoria(Mentoria mentoria) {
+        mentorias.add(mentoria);
+    }
+
+    public void adicionarDev(Dev dev) {
+        devs.add(dev);
+    }
+}
+
+// Classe Curso
+public class Curso {
+    private String nome;
+    private int duracaoHoras;
+
+    public Curso(String nome, int duracaoHoras) {
+        this.nome = nome;
+        this.duracaoHoras = duracaoHoras;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public int getDuracaoHoras() {
+        return duracaoHoras;
+    }
+}
+
+// Classe Mentoria
+public class Mentoria {
+    private String tema;
+    private String horario;
+
+    public Mentoria(String tema, String horario) {
+        this.tema = tema;
+        this.horario = horario;
+    }
+
+    public String getTema() {
+        return tema;
+    }
+
+    public String getHorario() {
+        return horario;
+    }
+}
+
+// Classe Dev
+public class Dev {
+    private String nome;
+    private String area;
+
+    public Dev(String nome, String area) {
+        this.nome = nome;
+        this.area = area;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getArea() {
+        return area;
+    }
+}
+
+
+Agora, com as classes básicas definidas. Podemos criar objetos dessas classes para representar instâncias reais do bootcamp:
+public class Main {
+    public static void main(String[] args) {
+        // Criando um bootcamp
+        Bootcamp bootcamp = new Bootcamp("Java Master");
+
+        // Adicionando cursos
+        Curso cursoJava = new Curso("Java Fundamentals", 40);
+        Curso cursoWeb = new Curso("Desenvolvimento Web", 60);
+        bootcamp.adicionarCurso(cursoJava);
+        bootcamp.adicionarCurso(cursoWeb);
+
+        // Adicionando mentorias
+        Mentoria mentorJava = new Mentoria("Java Avançado", "Segundas-feiras, 18h");
+        Mentoria mentorCarreira = new Mentoria("Orientação de Carreira", "Quartas-feiras, 20h");
+        bootcamp.adicionarMentoria(mentorJava);
+        bootcamp.adicionarMentoria(mentorCarreira);
+
+        // Adicionando devs
+        Dev dev1 = new Dev("João", "Backend");
+        Dev dev2 = new Dev("Maria", "Frontend");
+        bootcamp.adicionarDev(dev1);
+        bootcamp.adicionarDev(dev2);
+    }
+}
+Este é um exemplo simples de como modelar o domínio de um bootcamp em Java usando POO. 
